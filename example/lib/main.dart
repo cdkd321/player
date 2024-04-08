@@ -5,19 +5,16 @@ import 'package:flutter/services.dart';
 import 'package:player/player.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({super.key});
-
   @override
-  State<MyApp> createState() => _MyAppState();
+  _MyAppState createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
   String _platformVersion = 'Unknown';
-  final _playerPlugin = Player();
 
   @override
   void initState() {
@@ -29,10 +26,8 @@ class _MyAppState extends State<MyApp> {
   Future<void> initPlatformState() async {
     String platformVersion;
     // Platform messages may fail, so we use a try/catch PlatformException.
-    // We also handle the message potentially returning null.
     try {
-      platformVersion =
-          await _playerPlugin.getPlatformVersion() ?? 'Unknown platform version';
+      platformVersion = await Player.platformVersion;
     } on PlatformException {
       platformVersion = 'Failed to get platform version.';
     }
