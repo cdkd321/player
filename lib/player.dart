@@ -7,7 +7,7 @@ class Player extends FijkPlayer {
   static const asset_url_suffix = "asset:///";
   static const cache_switch = 'ijkio:cache:ffio:';
 
-  static String _cachePath = '/storage/emulated/0/Android/data/com.example.mc/files';
+  static String _cachePath = '/storage/emulated/0/Android/data/com.appjojo.timimind/files';
   bool enableCache = true;
 
   static void setCachePath(String path) {
